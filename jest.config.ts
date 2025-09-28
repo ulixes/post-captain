@@ -7,8 +7,8 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^post-captain$': '<rootDir>/src/index.ts',
-    '^post-captain/(.*)$': '<rootDir>/src/$1',
+    '^post-tiktok-captain$': '<rootDir>/src/index.ts',
+    '^post-tiktok-captain/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',
