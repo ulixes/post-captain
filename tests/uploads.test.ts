@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'post-captain/internal/to-file';
-import { toFile } from 'post-captain/core/uploads';
+import type { ResponseLike } from 'post-tiktok-captain/internal/to-file';
+import { toFile } from 'post-tiktok-captain/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('post-captain/core/uploads');
+    const uploads = await import('post-tiktok-captain/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(

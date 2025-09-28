@@ -25,7 +25,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              regex: '^post-captain(/.*)?',
+              regex: '^post-tiktok-captain(/.*)?',
               message: 'Use a relative import, not a package import.',
             },
           ],

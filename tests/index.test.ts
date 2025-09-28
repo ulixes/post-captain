@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'post-captain/core/api-promise';
+import { APIPromise } from 'post-tiktok-captain/core/api-promise';
 
 import util from 'node:util';
-import PostCaptain from 'post-captain';
-import { APIUserAbortError } from 'post-captain';
+import PostCaptain from 'post-tiktok-captain';
+import { APIUserAbortError } from 'post-tiktok-captain';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

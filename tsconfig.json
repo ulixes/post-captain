@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "post-captain/*": ["./src/*"],
-      "post-captain": ["./src/index.ts"]
+      "post-tiktok-captain/*": ["./src/*"],
+      "post-tiktok-captain": ["./src/index.ts"]
     },
     "noEmit": true,
 
