@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "post-captain/*": ["./dist/src/*"],
-      "post-captain": ["./dist/src/index.ts"]
+      "post-tiktok-captain/*": ["./dist/src/*"],
+      "post-tiktok-captain": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
