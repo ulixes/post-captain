@@ -25,7 +25,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              regex: '^zkad-post-captain(/.*)?',
+              regex: '^post-captain(/.*)?',
               message: 'Use a relative import, not a package import.',
             },
           ],

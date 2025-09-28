@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { PostCaptain } from 'zkad-post-captain';
+import { PostCaptain } from 'post-captain';
 
 const { stringifyQuery } = PostCaptain.prototype as any;
 

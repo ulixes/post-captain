@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'zkad-post-captain/internal/uploads';
-import { toFile } from 'zkad-post-captain/core/uploads';
+import { multipartFormRequestOptions, createForm } from 'post-captain/internal/uploads';
+import { toFile } from 'post-captain/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

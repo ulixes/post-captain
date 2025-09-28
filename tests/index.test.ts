@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'zkad-post-captain/core/api-promise';
+import { APIPromise } from 'post-captain/core/api-promise';
 
 import util from 'node:util';
-import PostCaptain from 'zkad-post-captain';
-import { APIUserAbortError } from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
+import { APIUserAbortError } from 'post-captain';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

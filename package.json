@@ -1,12 +1,12 @@
 {
-  "name": "zkad-post-captain",
+  "name": "post-captain",
   "version": "0.1.1",
   "description": "The official TypeScript library for the Post Captain API",
   "author": "Post Captain <>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:ulixes/post-captain",
+  "repository": "github:stainless-sdks/post-captain-typescript",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
