@@ -2,22 +2,14 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
-import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
 export class Profile extends APIResource {
   /**
-   * Get authenticated user profile
+   * Get authenticated user profile using Bearer token
    */
-  retrieve(
-    params: ProfileRetrieveParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<ProfileRetrieveResponse> {
-    const { cookie } = params ?? {};
-    return this._client.get('/api/profile', {
-      ...options,
-      headers: buildHeaders([{ ...(cookie != null ? { cookie: cookie } : undefined) }, options?.headers]),
-    });
+  retrieve(options?: RequestOptions): APIPromise<ProfileRetrieveResponse> {
+    return this._client.get('/api/profile', options);
   }
 }
 
@@ -31,16 +23,6 @@ export interface ProfileRetrieveResponse {
   name: string | null;
 }
 
-export interface ProfileRetrieveParams {
-  /**
-   * Session cookie
-   */
-  cookie?: string;
-}
-
 export declare namespace Profile {
-  export {
-    type ProfileRetrieveResponse as ProfileRetrieveResponse,
-    type ProfileRetrieveParams as ProfileRetrieveParams,
-  };
+  export { type ProfileRetrieveResponse as ProfileRetrieveResponse };
 }
