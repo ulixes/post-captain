@@ -50,4 +50,4 @@ Methods:
 - <code title="post /api/tiktok/post-photos">client.api.tiktok.<a href="./src/resources/api/tiktok.ts">postPhotos</a>({ ...params }) -> TiktokPostPhotosResponse</code>
 - <code title="post /api/tiktok/post-video">client.api.tiktok.<a href="./src/resources/api/tiktok.ts">postVideo</a>({ ...params }) -> TiktokPostVideoResponse</code>
 - <code title="post /api/tiktok/creator-info">client.api.tiktok.<a href="./src/resources/api/tiktok.ts">queryCreatorInfo</a>() -> TiktokQueryCreatorInfoResponse</code>
-- <code title="put /api/tiktok/upload-video">client.api.tiktok.<a href="./src/resources/api/tiktok.ts">uploadVideoFile</a>({ ...params }) -> TiktokUploadVideoFileResponse</code>
+- <code title="put /api/tiktok/upload-video">client.api.tiktok.<a href="./src/resources/api/tiktok.ts">uploadVideoFile</a>(body, { ...params }) -> TiktokUploadVideoFileResponse</code>

@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PostCaptain from 'post-captain';
+import PostCaptain, { toFile } from 'post-captain';
 
 const client = new PostCaptain({
   apiKey: 'My API Key',
@@ -125,7 +125,10 @@ describe('resource tiktok', () => {
 
   // Prism tests are disabled
   test.skip('uploadVideoFile: only required params', async () => {
-    const responsePromise = client.api.tiktok.uploadVideoFile({ upload_url: 'upload_url' });
+    const responsePromise = client.api.tiktok.uploadVideoFile(
+      await toFile(Buffer.from('# my file contents'), 'README.md'),
+      { upload_url: 'upload_url' },
+    );
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -137,6 +140,9 @@ describe('resource tiktok', () => {
 
   // Prism tests are disabled
   test.skip('uploadVideoFile: required and optional params', async () => {
-    const response = await client.api.tiktok.uploadVideoFile({ upload_url: 'upload_url', body: {} });
+    const response = await client.api.tiktok.uploadVideoFile(
+      await toFile(Buffer.from('# my file contents'), 'README.md'),
+      { upload_url: 'upload_url' },
+    );
   });
 });
