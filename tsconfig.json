@@ -8,8 +8,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "paths": {
-      "post-captain/*": ["./src/*"],
-      "post-captain": ["./src/index.ts"]
+      "zkad-post-captain/*": ["./src/*"],
+      "zkad-post-captain": ["./src/index.ts"]
     },
     "noEmit": true,
 

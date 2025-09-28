@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PostCaptain, { toFile } from 'post-captain';
+import PostCaptain, { toFile } from 'zkad-post-captain';
 
 const client = new PostCaptain({
   apiKey: 'My API Key',
