@@ -98,24 +98,23 @@ export class Tiktok extends APIResource {
    *
    * @example
    * ```ts
-   * const response = await client.api.tiktok.uploadVideoFile({
-   *   upload_url: 'upload_url',
-   * });
+   * const response = await client.api.tiktok.uploadVideoFile(
+   *   fs.createReadStream('path/to/file'),
+   *   { upload_url: 'upload_url' },
+   * );
    * ```
    */
   uploadVideoFile(
+    body: string | ArrayBuffer | ArrayBufferView | Blob | DataView,
     params: TiktokUploadVideoFileParams,
     options?: RequestOptions,
   ): APIPromise<TiktokUploadVideoFileResponse> {
-    const { upload_url, body } = params;
+    const { upload_url } = params;
     return this._client.put('/api/tiktok/upload-video', {
-      query: { upload_url },
       body: body,
+      query: { upload_url },
       ...options,
-      headers: buildHeaders([
-        { ...('video/mp4' != null ? { 'Content-Type': 'video/mp4' } : undefined) },
-        options?.headers,
-      ]),
+      headers: buildHeaders([{ 'Content-Type': 'video/mp4' }, options?.headers]),
     });
   }
 }
@@ -362,11 +361,6 @@ export interface TiktokUploadVideoFileParams {
    * Query param:
    */
   upload_url: string;
-
-  /**
-   * Body param:
-   */
-  body?: unknown;
 }
 
 export declare namespace Tiktok {
