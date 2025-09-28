@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "post-captain/*": ["./dist/src/*"],
-      "post-captain": ["./dist/src/index.ts"]
+      "zkad-post-captain/*": ["./dist/src/*"],
+      "zkad-post-captain": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
