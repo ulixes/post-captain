@@ -1,0 +1,8 @@
+node_modules/
+.env
+auth.db
+*.log
+.DS_Store
+bun.lockb
+ngrok.yml
+*.tmp

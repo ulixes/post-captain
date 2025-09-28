@@ -1,0 +1,79 @@
+{
+  "video_pull_from_url": {
+    "description": "Post video from URL (most common)",
+    "payload": {
+      "post_info": {
+        "title": "My Amazing Video",
+        "privacy_level": "PUBLIC_TO_EVERYONE",
+        "disable_duet": false,
+        "disable_comment": false,
+        "disable_stitch": false,
+        "description": "Check out this cool video! #tiktok #video"
+      },
+      "source_info": {
+        "source": "PULL_FROM_URL",
+        "video_url": "https://ulyxes.xyz/m2-res_854p%20(3).mp4"
+      }
+    }
+  },
+  
+  "video_file_upload": {
+    "description": "Upload video file directly",
+    "payload": {
+      "post_info": {
+        "title": "Direct Upload Video",
+        "privacy_level": "PUBLIC_TO_EVERYONE",
+        "disable_duet": false,
+        "disable_comment": false,
+        "disable_stitch": false,
+        "video_cover_timestamp_ms": 1000,
+        "description": "Uploaded directly!"
+      },
+      "source_info": {
+        "source": "FILE_UPLOAD",
+        "video_size": 3740995,
+        "chunk_size": 10000000,
+        "total_chunk_count": 1
+      }
+    }
+  },
+
+  "photo_post": {
+    "description": "Post photo carousel",
+    "payload": {
+      "post_info": {
+        "title": "My Photo Carousel",
+        "privacy_level": "PUBLIC_TO_EVERYONE",
+        "disable_duet": false,
+        "disable_comment": false,
+        "disable_stitch": false,
+        "description": "Beautiful photos! #photography"
+      },
+      "source_info": {
+        "source": "PULL_FROM_URL",
+        "photo_cover_index": 0,
+        "photo_images": [
+          "https://example.com/photo1.jpg",
+          "https://example.com/photo2.jpg",
+          "https://example.com/photo3.jpg"
+        ]
+      },
+      "post_mode": "DIRECT_POST",
+      "media_type": "PHOTO"
+    }
+  },
+
+  "privacy_options": {
+    "PUBLIC_TO_EVERYONE": "Visible to all TikTok users",
+    "MUTUAL_FOLLOW_FRIENDS": "Visible only to mutual followers",
+    "SELF_ONLY": "Private, visible only to you"
+  },
+
+  "important_notes": [
+    "Your app must be approved for Direct Post by TikTok",
+    "Video URLs must be HTTPS and publicly accessible",
+    "Maximum video duration depends on your app's permissions",
+    "Title is required and limited to 150 characters",
+    "For FILE_UPLOAD, you'll get an upload_url in response to upload the video to"
+  ]
+}
