@@ -377,7 +377,7 @@ export function createTikTokPostingRoutes(app: OpenAPIHono, getAccessToken: (hea
       body: {
         content: {
           'video/mp4': {
-            schema: z.any()
+            schema: z.string().openapi({ format: 'binary' })
           }
         }
       },
