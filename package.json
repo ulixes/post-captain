@@ -1,6 +1,6 @@
 {
   "name": "post-captain",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The official TypeScript library for the Post Captain API",
   "author": "Post Captain <>",
   "types": "dist/index.d.ts",
