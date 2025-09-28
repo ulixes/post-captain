@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0 (2025-09-28)
+
+Full Changelog: [v0.1.1...v0.2.0](https://github.com/ulixes/post-captain/compare/v0.1.1...v0.2.0)
+
+### Features
+
+* **api:** manual updates ([acfc021](https://github.com/ulixes/post-captain/commit/acfc021a052e6fad1db0fe010b12d01b66591d3d))
+
+
+### Chores
+
+* update SDK settings ([0370c31](https://github.com/ulixes/post-captain/commit/0370c3182d74e3a80e3560936788eb747cbd60f2))
+
 ## 0.1.1 (2025-09-28)
 
 Full Changelog: [v0.1.0...v0.1.1](https://github.com/ulixes/post-captain/compare/v0.1.0...v0.1.1)
