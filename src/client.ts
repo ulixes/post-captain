@@ -16,9 +16,15 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { Health, HealthCheckResponse } from './resources/health';
-import { OAuth, OAuthInitiateTiktokParams, OAuthInitiateTiktokResponse } from './resources/oauth';
-import { API as ApiapiAPI } from './resources/api/api';
+import {
+  Auth,
+  AuthSignInWithSocialParams,
+  AuthSignInWithSocialResponse,
+  AuthSignOutParams,
+  AuthSignOutResponse,
+} from './resources/auth';
+import { Profile, ProfileRetrieveParams, ProfileRetrieveResponse } from './resources/profile';
+import { Session, SessionRetrieveParams, SessionRetrieveResponse } from './resources/session';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -722,25 +728,35 @@ export class PostCaptain {
 
   static toFile = Uploads.toFile;
 
-  health: API.Health = new API.Health(this);
-  oauth: API.OAuth = new API.OAuth(this);
-  api: API.API = new API.API(this);
+  auth: API.Auth = new API.Auth(this);
+  session: API.Session = new API.Session(this);
+  profile: API.Profile = new API.Profile(this);
 }
 
-PostCaptain.Health = Health;
-PostCaptain.OAuth = OAuth;
-PostCaptain.API = ApiapiAPI;
+PostCaptain.Auth = Auth;
+PostCaptain.Session = Session;
+PostCaptain.Profile = Profile;
 
 export declare namespace PostCaptain {
   export type RequestOptions = Opts.RequestOptions;
 
-  export { Health as Health, type HealthCheckResponse as HealthCheckResponse };
-
   export {
-    OAuth as OAuth,
-    type OAuthInitiateTiktokResponse as OAuthInitiateTiktokResponse,
-    type OAuthInitiateTiktokParams as OAuthInitiateTiktokParams,
+    Auth as Auth,
+    type AuthSignInWithSocialResponse as AuthSignInWithSocialResponse,
+    type AuthSignOutResponse as AuthSignOutResponse,
+    type AuthSignInWithSocialParams as AuthSignInWithSocialParams,
+    type AuthSignOutParams as AuthSignOutParams,
   };
 
-  export { ApiapiAPI as API };
+  export {
+    Session as Session,
+    type SessionRetrieveResponse as SessionRetrieveResponse,
+    type SessionRetrieveParams as SessionRetrieveParams,
+  };
+
+  export {
+    Profile as Profile,
+    type ProfileRetrieveResponse as ProfileRetrieveResponse,
+    type ProfileRetrieveParams as ProfileRetrieveParams,
+  };
 }

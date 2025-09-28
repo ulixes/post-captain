@@ -7,8 +7,8 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^zkad-post-captain$': '<rootDir>/src/index.ts',
-    '^zkad-post-captain/(.*)$': '<rootDir>/src/$1',
+    '^post-captain$': '<rootDir>/src/index.ts',
+    '^post-captain/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

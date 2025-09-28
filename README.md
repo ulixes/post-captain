@@ -1,6 +1,6 @@
 # Post Captain TypeScript API Library
 
-[![NPM version](<https://img.shields.io/npm/v/zkad-post-captain.svg?label=npm%20(stable)>)](https://npmjs.org/package/zkad-post-captain) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/zkad-post-captain)
+[![NPM version](<https://img.shields.io/npm/v/post-captain.svg?label=npm%20(stable)>)](https://npmjs.org/package/post-captain) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/post-captain)
 
 This library provides convenient access to the Post Captain REST API from server-side TypeScript or JavaScript.
 
@@ -11,8 +11,11 @@ It is generated with [Stainless](https://www.stainless.com/).
 ## Installation
 
 ```sh
-npm install zkad-post-captain
+npm install git+ssh://git@github.com:ulixes/post-captain.git
 ```
+
+> [!NOTE]
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install post-captain`
 
 ## Usage
 
@@ -20,15 +23,15 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 
 const client = new PostCaptain({
   apiKey: process.env['POST_CAPTAIN_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.health.check();
+const response = await client.auth.signInWithSocial();
 
-console.log(response.service);
+console.log(response.redirect);
 ```
 
 ### Request & Response types
@@ -37,13 +40,13 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 
 const client = new PostCaptain({
   apiKey: process.env['POST_CAPTAIN_API_KEY'], // This is the default and can be omitted
 });
 
-const response: PostCaptain.HealthCheckResponse = await client.health.check();
+const response: PostCaptain.AuthSignInWithSocialResponse = await client.auth.signInWithSocial();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -56,7 +59,7 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.health.check().catch(async (err) => {
+const response = await client.auth.signInWithSocial().catch(async (err) => {
   if (err instanceof PostCaptain.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
@@ -96,7 +99,7 @@ const client = new PostCaptain({
 });
 
 // Or, configure per-request:
-await client.health.check({
+await client.auth.signInWithSocial({
   maxRetries: 5,
 });
 ```
@@ -113,7 +116,7 @@ const client = new PostCaptain({
 });
 
 // Override per-request:
-await client.health.check({
+await client.auth.signInWithSocial({
   timeout: 5 * 1000,
 });
 ```
@@ -136,13 +139,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new PostCaptain();
 
-const response = await client.health.check().asResponse();
+const response = await client.auth.signInWithSocial().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.health.check().withResponse();
+const { data: response, response: raw } = await client.auth.signInWithSocial().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.service);
+console.log(response.redirect);
 ```
 
 ### Logging
@@ -159,7 +162,7 @@ The log level can be configured in two ways:
 2. Using the `logLevel` client option (overrides the environment variable if set)
 
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 
 const client = new PostCaptain({
   logLevel: 'debug', // Show all log messages
@@ -187,7 +190,7 @@ When providing a custom logger, the `logLevel` option still controls which messa
 below the configured level will not be sent to your logger.
 
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 import pino from 'pino';
 
 const logger = pino();
@@ -222,7 +225,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.health.check({
+client.auth.signInWithSocial({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
@@ -256,7 +259,7 @@ globalThis.fetch = fetch;
 Or pass it to the client:
 
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 import fetch from 'my-fetch';
 
 const client = new PostCaptain({ fetch });
@@ -267,7 +270,7 @@ const client = new PostCaptain({ fetch });
 If you want to set custom `fetch` options without overriding the `fetch` function, you can provide a `fetchOptions` object when instantiating the client or making a request. (Request-specific options override client options.)
 
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 
 const client = new PostCaptain({
   fetchOptions: {
@@ -284,7 +287,7 @@ options to requests:
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/node.svg" align="top" width="18" height="21"> **Node** <sup>[[docs](https://github.com/nodejs/undici/blob/main/docs/docs/api/ProxyAgent.md#example---proxyagent-with-fetch)]</sup>
 
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 import * as undici from 'undici';
 
 const proxyAgent = new undici.ProxyAgent('http://localhost:8888');
@@ -298,7 +301,7 @@ const client = new PostCaptain({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/bun.svg" align="top" width="18" height="21"> **Bun** <sup>[[docs](https://bun.sh/guides/http/proxy)]</sup>
 
 ```ts
-import PostCaptain from 'zkad-post-captain';
+import PostCaptain from 'post-captain';
 
 const client = new PostCaptain({
   fetchOptions: {
@@ -310,7 +313,7 @@ const client = new PostCaptain({
 <img src="https://raw.githubusercontent.com/stainless-api/sdk-assets/refs/heads/main/deno.svg" align="top" width="18" height="21"> **Deno** <sup>[[docs](https://docs.deno.com/api/deno/~/Deno.createHttpClient)]</sup>
 
 ```ts
-import PostCaptain from 'npm:zkad-post-captain';
+import PostCaptain from 'npm:post-captain';
 
 const httpClient = Deno.createHttpClient({ proxy: { url: 'http://localhost:8888' } });
 const client = new PostCaptain({
