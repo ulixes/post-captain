@@ -55,12 +55,12 @@ $ cd post-captain
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link post-captain
+$ yarn link zkad-post-captain
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global post-captain
+$ pnpm link -—global zkad-post-captain
 ```
 
 ## Running tests

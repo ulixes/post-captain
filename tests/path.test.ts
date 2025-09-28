@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'post-captain/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'zkad-post-captain/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 
