@@ -2,22 +2,14 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
-import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
 export class Session extends APIResource {
   /**
-   * Get current session info (for SDK: pass sessionToken as cookie)
+   * Get current session info using Bearer token authentication
    */
-  retrieve(
-    params: SessionRetrieveParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<SessionRetrieveResponse> {
-    const { cookie } = params ?? {};
-    return this._client.get('/api/session', {
-      ...options,
-      headers: buildHeaders([{ ...(cookie != null ? { cookie: cookie } : undefined) }, options?.headers]),
-    });
+  retrieve(options?: RequestOptions): APIPromise<SessionRetrieveResponse> {
+    return this._client.get('/api/session', options);
   }
 }
 
@@ -42,16 +34,6 @@ export namespace SessionRetrieveResponse {
   }
 }
 
-export interface SessionRetrieveParams {
-  /**
-   * Session cookie containing session_token
-   */
-  cookie?: string;
-}
-
 export declare namespace Session {
-  export {
-    type SessionRetrieveResponse as SessionRetrieveResponse,
-    type SessionRetrieveParams as SessionRetrieveParams,
-  };
+  export { type SessionRetrieveResponse as SessionRetrieveResponse };
 }

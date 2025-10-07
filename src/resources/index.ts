@@ -7,5 +7,5 @@ export {
   type AuthSignInWithSocialParams,
   type AuthSignOutParams,
 } from './auth';
-export { Profile, type ProfileRetrieveResponse, type ProfileRetrieveParams } from './profile';
-export { Session, type SessionRetrieveResponse, type SessionRetrieveParams } from './session';
+export { Profile, type ProfileRetrieveResponse } from './profile';
+export { Session, type SessionRetrieveResponse } from './session';

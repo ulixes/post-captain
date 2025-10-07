@@ -23,8 +23,8 @@ import {
   AuthSignOutParams,
   AuthSignOutResponse,
 } from './resources/auth';
-import { Profile, ProfileRetrieveParams, ProfileRetrieveResponse } from './resources/profile';
-import { Session, SessionRetrieveParams, SessionRetrieveResponse } from './resources/session';
+import { Profile, ProfileRetrieveResponse } from './resources/profile';
+import { Session, SessionRetrieveResponse } from './resources/session';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -748,15 +748,7 @@ export declare namespace PostCaptain {
     type AuthSignOutParams as AuthSignOutParams,
   };
 
-  export {
-    Session as Session,
-    type SessionRetrieveResponse as SessionRetrieveResponse,
-    type SessionRetrieveParams as SessionRetrieveParams,
-  };
+  export { Session as Session, type SessionRetrieveResponse as SessionRetrieveResponse };
 
-  export {
-    Profile as Profile,
-    type ProfileRetrieveResponse as ProfileRetrieveResponse,
-    type ProfileRetrieveParams as ProfileRetrieveParams,
-  };
+  export { Profile as Profile, type ProfileRetrieveResponse as ProfileRetrieveResponse };
 }

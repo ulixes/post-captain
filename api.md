@@ -18,7 +18,7 @@ Types:
 
 Methods:
 
-- <code title="get /api/session">client.session.<a href="./src/resources/session.ts">retrieve</a>({ ...params }) -> SessionRetrieveResponse</code>
+- <code title="get /api/session">client.session.<a href="./src/resources/session.ts">retrieve</a>() -> SessionRetrieveResponse</code>
 
 # Profile
 
@@ -28,4 +28,4 @@ Types:
 
 Methods:
 
-- <code title="get /api/profile">client.profile.<a href="./src/resources/profile.ts">retrieve</a>({ ...params }) -> ProfileRetrieveResponse</code>
+- <code title="get /api/profile">client.profile.<a href="./src/resources/profile.ts">retrieve</a>() -> ProfileRetrieveResponse</code>
