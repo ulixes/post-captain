@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.4.0 (2025-10-07)
+
+Full Changelog: [v0.3.0...v0.4.0](https://github.com/ulixes/post-captain/compare/v0.3.0...v0.4.0)
+
+### Features
+
+* **api:** api update ([01255b2](https://github.com/ulixes/post-captain/commit/01255b2cfd9d90a0f5ab4514382ab5b544ec6e67))
+
+
+### Chores
+
+* **internal:** use npm pack for build uploads ([05b9728](https://github.com/ulixes/post-captain/commit/05b9728299cc86ba9b5599fe1583ba8b9b014fd8))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([5a0f677](https://github.com/ulixes/post-captain/commit/5a0f677b35964914c208453d59bff4e029c8778a))
+
 ## 0.3.0 (2025-09-28)
 
 Full Changelog: [v0.2.1...v0.3.0](https://github.com/ulixes/post-captain/compare/v0.2.1...v0.3.0)
